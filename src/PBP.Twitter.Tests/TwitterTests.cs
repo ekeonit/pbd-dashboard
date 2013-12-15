@@ -67,5 +67,19 @@ namespace PBP.Twitter.Tests
         {
             var t= new Twitter("bad key", "bad secret");
         }
+
+        [Test]
+        [ExpectedException(typeof (ArgumentNullException))]
+        public void TwitterWhenInstantiatingGivenNullConsumerKeyShouldThrowArgumentNullException()
+        {
+            var t = new Twitter(null, Settings.Default.ConsumerSecret);
+        }
+
+        [Test]
+        [ExpectedException(typeof (ArgumentNullException))]
+        public void TwitterWhenInstantiatingGivenNullConsumerSecretShouldThrowArgumentNullException()
+        {
+            var t = new Twitter(Settings.Default.ConsumerKey, null);
+        }
     }
 }
