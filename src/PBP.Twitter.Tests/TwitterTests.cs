@@ -13,11 +13,11 @@ namespace PBP.Twitter.Tests
         private ITwitter _twitter;
         private string _user;
 
-        [SetUp]
-        public void SetUp()
+        [TestFixtureSetUp]
+        public void TestFixtureSetUp()
         {
             _twitter = new Twitter(Settings.Default.ConsumerKey, Settings.Default.ConsumerSecret);
-            _user = "PayByPhone";
+            _user = "PayByPhone";            
         }
 
         [Test]
