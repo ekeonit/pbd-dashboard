@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Security.Authentication;
 using FluentAssertions;
 using NUnit.Framework;
 using PBP.Twitter.Tests.Properties;
@@ -37,6 +38,13 @@ namespace PBP.Twitter.Tests
                 .Count()
                 .Should()
                 .BeGreaterThan(0);
+        }
+
+        [Test]
+        [ExpectedException(typeof(AuthenticationException))]
+        public void TwitterWhenInstantiatingWithBadCredentialsShouldThrowAuthenicationException()
+        {
+            var t= new Twitter("bad key", "bad secret");
         }
     }
 }
