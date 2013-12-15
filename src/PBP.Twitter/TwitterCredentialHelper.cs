@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 
 namespace PBP.Twitter
 {
@@ -6,7 +7,11 @@ namespace PBP.Twitter
     {
         public static string GenerateToken(string consumerKey, string consumerSecret)
         {
-            throw new NotImplementedException();
+            var keyUrlEncoded = HttpUtility.UrlEncode(consumerKey);
+            var secretUrlEncoded = HttpUtility.UrlEncode(consumerSecret);
+            var bearerTokenCredentials = string.Format("{0}:{1}", keyUrlEncoded, secretUrlEncoded);
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(bearerTokenCredentials);
+            return Convert.ToBase64String(plainTextBytes);
         }
     }
 }
