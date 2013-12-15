@@ -12,7 +12,10 @@ namespace PBP.Twitter
 {
     public class Twitter : ITwitter
     {
-        private readonly string _accessToken;
+        private string _accessToken;
+        
+        private const string ApiVersion = "1.1";
+        private const string Host = "https://api.twitter.com";
 
         internal class SearchResponse
         {
@@ -33,6 +36,21 @@ namespace PBP.Twitter
 
         public Twitter(string consumerKey, string consumerSecret)
         {
+            Authenticate(consumerKey, consumerSecret);
+        }
+
+        private void Authenticate(string consumerKey, string consumerSecret)
+        {
+            if (string.IsNullOrWhiteSpace(consumerKey))
+            {
+                throw new ArgumentNullException("consumerKey");
+            }
+
+            if (string.IsNullOrWhiteSpace(consumerSecret))
+            {
+                throw new ArgumentNullException(consumerSecret);
+            }
+
             var encodedCredentials = TwitterCredentialHelper.GenerateToken(consumerKey, consumerSecret);
 
             using (var httpClient = new HttpClient())
@@ -43,7 +61,7 @@ namespace PBP.Twitter
                 {
                     Method = HttpMethod.Post,
                     Content = new StringContent("grant_type=client_credentials"),
-                    RequestUri = new Uri("https://api.twitter.com/oauth2/token"),
+                    RequestUri = new Uri(string.Format("{0}/oauth2/token", Host)),
                 };
 
                 request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
@@ -65,17 +83,21 @@ namespace PBP.Twitter
 
         public IEnumerable<Tweet> Search(string query)
         {
+            if (string.IsNullOrEmpty(_accessToken))
+            {
+                throw new AuthenticationException();
+            }
+
+            if (string.IsNullOrEmpty(query))
+            {
+                throw new ArgumentNullException("query");
+            }
+
             using (var httpClient = new HttpClient())
             {
-                var uriBuilder = new UriBuilder("https://api.twitter.com/1.1/search/tweets.json");
-                var queryString = HttpUtility.ParseQueryString(string.Empty);
-                queryString["q"] = query;
-                uriBuilder.Query = queryString.ToString();
-
                 httpClient.DefaultRequestHeaders.Add("Authorization", string.Format("Bearer {0}", _accessToken));
-                var response = httpClient.GetStringAsync(uriBuilder.Uri);
 
-
+                var response = httpClient.GetStringAsync(BuildSearchUriFromQuery(query));
 
                 var searchResult = JsonConvert.DeserializeObject<SearchResponse>(response.Result);
 
@@ -83,9 +105,20 @@ namespace PBP.Twitter
                     new Tweet
                     {
                         Text = status.text,
-                        TweetedAt = DateTime.ParseExact(status.created_at, "ddd MMM d HH:mm:ss K yyyy", CultureInfo.InvariantCulture)
+                        TweetedAt =
+                            DateTime.ParseExact(status.created_at, "ddd MMM d HH:mm:ss K yyyy",
+                                CultureInfo.InvariantCulture)
                     });
             }
+        }
+
+        private static Uri BuildSearchUriFromQuery(string query)
+        {
+            var uriBuilder = new UriBuilder(string.Format("{0}/{1}/search/tweets.json", Host, ApiVersion));
+            var queryString = HttpUtility.ParseQueryString(string.Empty);
+            queryString["q"] = query;
+            uriBuilder.Query = queryString.ToString();
+            return uriBuilder.Uri;
         }
     }
 }
