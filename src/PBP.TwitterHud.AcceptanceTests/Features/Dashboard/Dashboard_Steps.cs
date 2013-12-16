@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using FluentAssertions;
 using PBP.Twitter;
 using PBP.TwitterHud.Web;
@@ -32,19 +33,22 @@ namespace PBP.TwitterHud.AcceptanceTests.Features.Dashboard
         public void GivenTheUserHasMadeTheFollowingTweets(string userName, Table tweets)
         {
             _twitter
-                .Stub(twitter => twitter.Search(Arg<string>.Matches(s => s.Contains(userName))))
+                .Stub(
+                    twitter =>
+                        twitter.Search(Arg<string>.Matches(s => Regex.IsMatch(s, string.Format("\\b{0}\\b", userName)))))
                 .Return(tweets.Rows.Select(row =>
                     new Tweet
                     {
                         Text = row["Text"],
-                        TweetedAt = DateTime.Parse(row["At"])
+                        TweetedAt = DateTime.Parse(row["At"]),
+                        User = userName
                     }));
         }
 
-        [When(@"a request is received to see all tweets since '(.*)'")]
-        public void WhenARequestIsReceivedToSeeAllTweetsSince(DateTime sinceDateTime)
+        [When(@"a request is received to see all tweets since 2 weeks before '(.*)'")]
+        public void WhenARequestIsReceivedToSeeAllTweetsSince2WeeksBefore(DateTime sinceDateTime)
         {
-            _response = _controller.Get(sinceDateTime).Data as GetPBPTweetsResponseModel;
+            _response = _controller.Get(sinceDateTime.AddDays(-14)).Data as GetPBPTweetsResponseModel;
         }
 
         [Then(@"the total number of tweets for the account '(.*)' should be (.*)")]

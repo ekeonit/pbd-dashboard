@@ -17,7 +17,7 @@ Scenario: A request is received to see all tweets since 2 weeks ago
 		| @Madame_Claude Its poss that you entered the incorrect unit,please email help@paybyphone.co.uk so we can look into a refund for you. Thanks | 2013-12-10T00:41 |
 		| @james_coxNQE @ChelmsCouncil Apologies James however we were not aware of your issue until now,we will make sure this gets picked up ASAP.  | 2013-12-09T06:49 |
 		| @ChelmsCouncil @james_coxNQE Hi James,if you could email the team help@paybyphone.co.uk your query we will look into this for you asap, tx  | 2013-12-09T06:02 |
-	When a request is received to see all tweets since '2013-12-15T07:41'
+	When a request is received to see all tweets since 2 weeks before '2013-12-15T07:41'
 	Then the total number of tweets for the account 'pay_by_phone' should be 3
 	And the total number of tweets for the account 'PayByPhone' should be 2
 	And the total number of tweets for the account 'PayByPhone_UK' should be 3
@@ -29,7 +29,6 @@ Scenario: A request is received to see all tweets since 2 weeks ago
 	And the total number of times users were mentioned for the account 'PayByPhone' should be
 		| user          | number of mentions |
 		| deblanda      | 1                  |
-		| mobilepayment | 1                  |
 	And the total number of times users were mentioned for the account 'PayByPhone_UK' should be
 		| user          | number of mentions |
 		| Madame_Claude | 1                  |

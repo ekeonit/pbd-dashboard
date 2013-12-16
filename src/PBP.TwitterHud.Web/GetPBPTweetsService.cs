@@ -6,14 +6,28 @@ namespace PBP.TwitterHud.Web
 {
     public class GetPBPTweetsService : IGetPBPTweetsService
     {
-        public GetPBPTweetsService(string[] accounts, ITwitter twitter)
+        private readonly string[] _users;
+        private readonly ITwitter _twitter;
+
+        public GetPBPTweetsService(string[] users, ITwitter twitter)
         {
-            throw new NotImplementedException();
+            _users = users;
+            _twitter = twitter;
         }
 
         public IEnumerable<Tweet> GeTweetsSince(DateTime sinceDateTime)
         {
-            throw new NotImplementedException();
+            var tweets = new List<Tweet>();
+
+            foreach (var user in _users)
+            {
+                var query = string.Format(
+                    "{0} since:{1}", user, sinceDateTime.ToString("yyyy-MM-dd"));
+
+                tweets.AddRange(_twitter.Search(query));
+            }
+
+            return tweets;
         }
     }
 }

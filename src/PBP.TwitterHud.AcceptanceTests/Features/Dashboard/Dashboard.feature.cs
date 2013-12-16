@@ -122,7 +122,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 15
  testRunner.Given("the user \'PayByPhone_UK\' has made the following tweets", ((string)(null)), table3, "Given ");
 #line 20
- testRunner.When("a request is received to see all tweets since \'2013-12-15T07:41\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("a request is received to see all tweets since 2 weeks before \'2013-12-15T07:41\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 21
  testRunner.Then("the total number of tweets for the account \'pay_by_phone\' should be 3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 22
@@ -152,9 +152,6 @@ this.ScenarioSetup(scenarioInfo);
             table5.AddRow(new string[] {
                         "deblanda",
                         "1"});
-            table5.AddRow(new string[] {
-                        "mobilepayment",
-                        "1"});
 #line 29
  testRunner.And("the total number of times users were mentioned for the account \'PayByPhone\' shoul" +
                     "d be", ((string)(null)), table5, "And ");
@@ -171,7 +168,7 @@ this.ScenarioSetup(scenarioInfo);
             table6.AddRow(new string[] {
                         "james_coxNQE",
                         "2"});
-#line 33
+#line 32
  testRunner.And("the total number of times users were mentioned for the account \'PayByPhone_UK\' sh" +
                     "ould be", ((string)(null)), table6, "And ");
 #line hidden
@@ -218,7 +215,7 @@ this.ScenarioSetup(scenarioInfo);
                         "@Gingerbikeruk Yes, put it down as a car. If you\'re in the UK please follow @PayB" +
                             "yPhone_UK for questions and updates. Thanks for signing up!",
                         "2013-12-02T12:47"});
-#line 38
+#line 37
  testRunner.And("the sorted list of tweets for all of the accounts over the period should be", ((string)(null)), table7, "And ");
 #line hidden
             this.ScenarioCleanup();
