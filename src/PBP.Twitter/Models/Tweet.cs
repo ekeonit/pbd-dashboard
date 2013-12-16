@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PBP.Twitter
+namespace PBP.Twitter.Models
 {
     public class Tweet
     {

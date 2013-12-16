@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using PBP.Twitter;
+using PBP.Twitter.Models;
 
-namespace PBP.TwitterHud.Web
+namespace PBP.TwitterHud.Web.Services
 {
     public interface IGetPBPTweetsService
     {

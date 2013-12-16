@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using PBP.Twitter;
+using PBP.Twitter.Models;
 
-namespace PBP.TwitterHud.Web
+namespace PBP.TwitterHud.Web.Services
 {
     public class TweetAggregator
     {

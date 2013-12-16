@@ -3,9 +3,11 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using FluentAssertions;
 using PBP.Twitter;
+using PBP.Twitter.Models;
 using PBP.TwitterHud.Web;
 using PBP.TwitterHud.Web.Controllers;
 using PBP.TwitterHud.Web.Models;
+using PBP.TwitterHud.Web.Services;
 using Rhino.Mocks;
 using TechTalk.SpecFlow;
 

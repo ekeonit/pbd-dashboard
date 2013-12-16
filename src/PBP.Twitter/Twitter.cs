@@ -7,6 +7,7 @@ using System.Net.Http.Headers;
 using System.Security.Authentication;
 using System.Web;
 using Newtonsoft.Json;
+using PBP.Twitter.Models;
 
 namespace PBP.Twitter
 {

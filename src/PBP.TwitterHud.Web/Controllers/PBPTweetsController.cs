@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using PBP.TwitterHud.Web.Models;
+using PBP.TwitterHud.Web.Services;
 
 namespace PBP.TwitterHud.Web.Controllers
 {

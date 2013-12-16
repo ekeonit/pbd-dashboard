@@ -61,14 +61,14 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\PBPTweetsController.cs" />
-    <Compile Include="GetPBPTweetsService.cs" />
+    <Compile Include="Services\GetPBPTweetsService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="IGetPBPTweetsService.cs" />
+    <Compile Include="Services\IGetPBPTweetsService.cs" />
     <Compile Include="Models\GetPBPTweetsResponseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TweetAggregator.cs" />
+    <Compile Include="Services\TweetAggregator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

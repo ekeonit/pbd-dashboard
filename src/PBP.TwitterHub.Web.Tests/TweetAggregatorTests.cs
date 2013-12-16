@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using FluentAssertions;
 using NUnit.Framework;
 using PBP.Twitter;
+using PBP.Twitter.Models;
 using PBP.TwitterHud.Web;
+using PBP.TwitterHud.Web.Services;
 
 namespace PBP.TwitterHub.Web.Tests
 {
