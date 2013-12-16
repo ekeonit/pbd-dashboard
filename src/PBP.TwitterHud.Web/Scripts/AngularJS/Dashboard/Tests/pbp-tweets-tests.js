@@ -12,7 +12,7 @@ describe('PBPTweetsTests', function () {
         module('app');
     });
 
-    beforeEach(function () {
+    beforeEach(function() {
 
         inject(function($injector, $httpBackend) {
             pbpTweets = $injector.get('PBPTweets');
@@ -20,6 +20,7 @@ describe('PBPTweetsTests', function () {
         });
 
         httpBackend.whenGET('/PBPTweets/Get').respond({
+            
             tweets: [
                 {
                     text: 'A tweet to @nancy',
@@ -32,24 +33,22 @@ describe('PBPTweetsTests', function () {
                     user: 'nancy'
                 }
             ],
-            
+
             userAggregateData: {
-                "bob" : {
-                    totalTweets : 1,
+                "bob": {
+                    totalTweets: 1,
                     mentions: {
-                        "nancy" : 1
+                        "nancy": 1
                     },
-                   
-                "nancy" : {
-                    totalTweets : 1,
+                },
+                "nancy": {
+                    totalTweets: 1,
                     mentions: {
-                        "bob" : 1
+                        "bob": 1
                     }
-                }
                 }
             }
         });
-
     });
 
     describe('a get call for tweets', function () {
