@@ -15,21 +15,55 @@
         <script src="~/Scripts/AngularJS/Dashboard/pbp-tweets.js"></script>
     </head>
     <body>
-        <div ng-controller="PBPTweetsController">
-            <table>
-                <thead>
-                <th>User</th>
-                <th>Text</th>
-                <th>Tweeted At</th>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="tweet in model.tweets">
-                        <td>{{ tweet.user }}</td>
-                        <td>{{ tweet.text }}</td>
-                        <td>{{ tweet.tweetedAt }}</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="container">
+            <div ng-controller="PBPTweetsController">
+                <h1>PayByPhone Twitter Dashboard</h1>
+                <h2>Aggregate Data</h2>
+                <h3>Total Tweets By User</h3>
+                <table class="table table-striped table-hover table-bordered">
+                    <thead>
+                        <th>User</th>
+                        <th>Total Tweets</th>
+                    </thead>    
+                    <tbody>
+                        <tr ng-repeat="(user, aggregateData) in model.userAggregateData">
+                            <td>{{ user }}</td>
+                            <td>{{ aggregateData.totalTweets }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Mentions By User</h3>
+                <div ng-repeat="(user, aggregateData) in model.userAggregateData">
+                    <h4>User: {{ user }}</h4>
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <th>User Mentioned</th>
+                            <th>Total Mentions</th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="(userMentioned, timesMentioned) in aggregateData.mentions">
+                                <td>{{ userMentioned }}</td>
+                                <td>{{ timesMentioned }}</td>
+                            </tr>
+                        </tbody>
+                    </table>                    
+                </div>
+                <h2>Tweets</h2>
+                <table class="table table-striped table-hover table-bordered">
+                    <thead>
+                        <th>User</th>
+                        <th>Text</th>
+                        <th>Tweeted At</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="tweet in model.tweets">
+                            <td>{{ tweet.user }}</td>
+                            <td>{{ tweet.text }}</td>
+                            <td>{{ tweet.tweetedAt }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </body>
 </html>

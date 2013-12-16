@@ -24,7 +24,7 @@ namespace PBP.TwitterHud.Web.Services
             foreach (var user in _users)
             {
                 var query = string.Format(
-                    "{0} since:{1}", user, sinceDateTime.ToString("yyyy-MM-dd"));
+                    "from:{0} since:{1}", user, sinceDateTime.ToString("yyyy-MM-dd"));
 
                 tweets.AddRange(_twitter.Search(query).Select(tweet => new Tweet
                 {

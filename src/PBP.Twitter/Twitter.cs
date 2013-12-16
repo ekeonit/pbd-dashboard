@@ -118,6 +118,7 @@ namespace PBP.Twitter
             var uriBuilder = new UriBuilder(string.Format("{0}/{1}/search/tweets.json", Host, ApiVersion));
             var queryString = HttpUtility.ParseQueryString(string.Empty);
             queryString["q"] = query;
+            queryString["count"] = "100";
             uriBuilder.Query = queryString.ToString();
             return uriBuilder.Uri;
         }
