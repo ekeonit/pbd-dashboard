@@ -30,9 +30,11 @@ namespace PBP.TwitterHud.Web
 
             builder.RegisterControllers(typeof (MvcApplication).Assembly);
 
-            var twitter = new Twitter.Twitter(Settings.Default.consumerKey, Settings.Default.consumerSecret);
-
-            builder.RegisterInstance(twitter).AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<Twitter.Twitter>().SingleInstance().WithParameters(new[]
+            {
+                new NamedParameter("consumerKey", Settings.Default.consumerKey),
+                new NamedParameter("consumerSecret", Settings.Default.consumerSecret),
+            }).AsImplementedInterfaces();
 
             builder.RegisterType<GetPBPTweetsService>()
                 .AsImplementedInterfaces()
