@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using PBP.Twitter;
 using PBP.Twitter.Models;
 
@@ -25,7 +26,12 @@ namespace PBP.TwitterHud.Web.Services
                 var query = string.Format(
                     "{0} since:{1}", user, sinceDateTime.ToString("yyyy-MM-dd"));
 
-                tweets.AddRange(_twitter.Search(query));
+                tweets.AddRange(_twitter.Search(query).Select(tweet => new Tweet
+                {
+                    Text = tweet.Text,
+                    TweetedAt = tweet.TweetedAt,
+                    User = user
+                }));
             }
 
             return tweets;

@@ -11,8 +11,14 @@ angular
 
             return {
                 
-                get: function (since) {
-                    $http.get('/PBPTweets/Get')
+                get: function (sinceDateTime) {
+                    $http({
+                        method: 'GET',
+                        url: '/PBPTweets/Get',
+                        params: {
+                            sinceDateTime: sinceDateTime.toJSON()
+                        }
+                    })
                         .success(function (data) {
                             angular.copy(data, model);
                         });

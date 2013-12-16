@@ -1,0 +1,20 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PBP.TwitterHud.Web.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="consumerKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">cIDVSTXNw5gCj82tJfQ7w</Value>
+    </Setting>
+    <Setting Name="consumerSecret" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">tA4DKBEFonNXSyqUkqzQ4QVY8myRS5pVMsEVLQHpg</Value>
+    </Setting>
+    <Setting Name="users" Type="System.Collections.Specialized.StringCollection" Scope="Application">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;pay_by_phone&lt;/string&gt;
+  &lt;string&gt;PayByPhone&lt;/string&gt;
+  &lt;string&gt;PayByPhone_UK&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

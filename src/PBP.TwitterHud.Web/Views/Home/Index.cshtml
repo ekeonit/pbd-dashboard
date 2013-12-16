@@ -4,17 +4,32 @@
 
 <!DOCTYPE html>
 
-<html ng-app>
+<html ng-app="app">
     <head>
         <title>PayByPhone Twitter Dashboard</title>
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+        <script src="~/Scripts/moment.js"></script>
         <script src="~/Scripts/angular.js"></script>
         <script src="~/Scripts/AngularJS/app.js"></script>
         <script src="~/Scripts/AngularJS/Dashboard/pbp-tweets-controller.js"></script>
+        <script src="~/Scripts/AngularJS/Dashboard/pbp-tweets.js"></script>
     </head>
     <body>
         <div ng-controller="PBPTweetsController">
-              
+            <table>
+                <thead>
+                <th>User</th>
+                <th>Text</th>
+                <th>Tweeted At</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="tweet in model.tweets">
+                        <td>{{ tweet.user }}</td>
+                        <td>{{ tweet.text }}</td>
+                        <td>{{ tweet.tweetedAt }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </body>
 </html>
