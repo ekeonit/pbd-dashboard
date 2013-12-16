@@ -68,6 +68,7 @@
     <Compile Include="IGetPBPTweetsService.cs" />
     <Compile Include="Models\GetPBPTweetsResponseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TweetAggregator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
