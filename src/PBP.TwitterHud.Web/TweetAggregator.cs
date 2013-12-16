@@ -18,39 +18,40 @@ namespace PBP.TwitterHud.Web
 
         public static Dictionary<string, TweetAggregatorResult> Process(List<Tweet> tweets)
         {
-            var q = tweets.GroupBy(tweet => tweet.User)
+            var processed = tweets
+                .GroupBy(tweet => tweet.User)
                 .ToDictionary(grouping => grouping.Key, grouping => new TweetAggregatorResult()
                 {
                     TotalTweets = grouping.Count(),
-                    Mentions = new Dictionary<string, int>()
+                    Mentions = ProcessMentions(tweets.Where(tweet => tweet.User == grouping.Key))
                 });
 
-            // iterate through each tweet and extract matches for mentions
-            // to build our dictionary
+            return processed;
+        }
 
-            foreach (var user in q.Keys)
+        private static Dictionary<string, int> ProcessMentions(IEnumerable<Tweet> tweets)
+        {
+            var mentions = new Dictionary<string, int>();
+
+            // the following query will iterate over each usermentioned in the
+            // given collection of tweets, stripping off the '@' character,
+            // tabulating the number of total mentions
+
+            foreach (
+                var user in tweets.SelectMany(tweet => (from Match match in Regex.Matches(tweet.Text, MentionPattern)
+                    select match.Value.Remove(0, 1))))
             {
-                var user1 = user;
-
-                foreach (var tweet in tweets.Where(tweet => tweet.User == user1))
+                if (mentions.ContainsKey(user))
                 {
-                    foreach (Match match in Regex.Matches(tweet.Text, MentionPattern))
-                    {
-                        var stripAt = match.Value.Remove(0, 1);
-
-                        if (q[user].Mentions.ContainsKey(stripAt))
-                        {
-                            q[user].Mentions[stripAt]++;
-                        }
-                        else
-                        {
-                            q[user].Mentions.Add(stripAt, 1);
-                        }
-                    }
+                    mentions[user]++;
+                }
+                else
+                {
+                    mentions.Add(user, 1);
                 }
             }
 
-            return q;
+            return mentions;
         }
     }
 }
