@@ -21,6 +21,11 @@ namespace PBP.TwitterHud.Web.Services
         {
             var tweets = new List<Tweet>();
 
+            // TODO: Implement leapfrogging search through timeline
+            // Twitter will only return 6-9 days worth of data.  One suggested method to go beyond that
+            // is to use search in conjunction with max_id, thereby slowly searching back through the
+            // timeline until the desired starting point (sinceDateTime) is reached.
+
             foreach (var user in _users)
             {
                 var query = string.Format(
