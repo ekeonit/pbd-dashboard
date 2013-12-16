@@ -35,15 +35,15 @@ Scenario: A request is received to see all tweets since 2 weeks ago
 		| ChelmsCouncil | 2                  |
 		| james_coxNQE  | 2                  |
 	And the sorted list of tweets for all of the accounts over the period should be
-		| user          | text                                                                                                                                         | at               |
-		| pay_by_phone  | Oh the weather outside is frightful, but parking can be quite delightful! When you park and #PayByPhone, PayByPhone, PayByPhone, PayByPhone  | 2013-12-14T19:39 |
-		| PayByPhone    | @deblanda Hi ! you can address to @pay_by_phone who is managing North Amercia !                                                              | 2013-12-13T00:29 |
-		| PayByPhone    | PayByPhone et VINCI Park remportent le Grand Prix 2013 de la Revue des Collectivités Locales des paiements innovants                         | 2013-12-12T13:04 |
-		| PayByPhone_UK | @Madame_Claude Its poss that you entered the incorrect unit,please email help@paybyphone.co.uk so we can look into a refund for you. Thanks  | 2013-12-10T00:41 |
-		| PayByPhone_UK | @james_coxNQE @ChelmsCouncil Apologies James however we were not aware of your issue until now,we will make sure this gets picked up ASAP.   | 2013-12-09T06:49 |
-		| PayByPhone_UK | @ChelmsCouncil @james_coxNQE Hi James,if you could email the team help@paybyphone.co.uk your query we will look into this for you asap, tx   | 2013-12-09T06:02 |
-		| pay_by_phone  | @socialnerdia Not yet but we're always looking to expand in the Lower Mainland. We have a pilot project w/ NYDOT in The Bronx's Little Italy | 2013-12-03T16:08 |
-		| pay_by_phone  | @Gingerbikeruk Yes, put it down as a car. If you're in the UK please follow @PayByPhone_UK for questions and updates. Thanks for signing up! | 2013-12-02T12:47 |
+		| user          | text                                                                                                                                         | at                     |
+		| pay_by_phone  | Oh the weather outside is frightful, but parking can be quite delightful! When you park and #PayByPhone, PayByPhone, PayByPhone, PayByPhone  | 12/14/2013 7:39:00 PM  |
+		| PayByPhone    | @deblanda Hi ! you can address to @pay_by_phone who is managing North Amercia !                                                              | 12/13/2013 12:29:00 AM |
+		| PayByPhone    | PayByPhone et VINCI Park remportent le Grand Prix 2013 de la Revue des Collectivités Locales des paiements innovants                         | 12/12/2013 1:04:00 PM  |
+		| PayByPhone_UK | @Madame_Claude Its poss that you entered the incorrect unit,please email help@paybyphone.co.uk so we can look into a refund for you. Thanks  | 12/10/2013 12:41:00 AM |
+		| PayByPhone_UK | @james_coxNQE @ChelmsCouncil Apologies James however we were not aware of your issue until now,we will make sure this gets picked up ASAP.   | 12/9/2013 6:49:00 AM  |
+		| PayByPhone_UK | @ChelmsCouncil @james_coxNQE Hi James,if you could email the team help@paybyphone.co.uk your query we will look into this for you asap, tx   | 12/9/2013 6:02:00 AM  |
+		| pay_by_phone  | @socialnerdia Not yet but we're always looking to expand in the Lower Mainland. We have a pilot project w/ NYDOT in The Bronx's Little Italy | 12/3/2013 4:08:00 PM  |
+		| pay_by_phone  | @Gingerbikeruk Yes, put it down as a car. If you're in the UK please follow @PayByPhone_UK for questions and updates. Thanks for signing up! | 12/2/2013 12:47:00 PM |
 
 
 

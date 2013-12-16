@@ -12,7 +12,7 @@ namespace PBP.TwitterHud.Web.Models
         {
             public string user { get; set; }
             public string text { get; set; }
-            public DateTime tweetedAt { get; set; }
+            public string tweetedAt { get; set; }
         }
 
         public class UserAggregateData

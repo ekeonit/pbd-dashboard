@@ -80,7 +80,7 @@ namespace PBP.TwitterHud.AcceptanceTests.Features.Dashboard
             {
                 _response.tweets[i].user.Should().Be(expectedTweets.Rows[i]["user"]);
                 _response.tweets[i].text.Should().Be(expectedTweets.Rows[i]["text"]);
-                _response.tweets[i].tweetedAt.Should().Be(DateTime.Parse(expectedTweets.Rows[i]["at"]));
+                _response.tweets[i].tweetedAt.Should().Be(expectedTweets.Rows[i]["at"]);
             }
         }
     }
