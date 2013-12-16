@@ -27,7 +27,7 @@ namespace PBP.TwitterHud.Web.Controllers
                         new GetPBPTweetsResponseModel.Tweet
                         {
                             text = tweet.Text,
-                            tweetedAt = tweet.TweetedAt,
+                            tweetedAt = tweet.TweetedAt.ToString("G"),
                             user = tweet.User
                         })
                     .ToArray(),
