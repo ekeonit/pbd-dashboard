@@ -56,7 +56,7 @@ namespace PBP.TwitterHub.Web.Tests
 
             var result = TweetAggregator.Process(_tweets);
 
-            result["bob"].totalTweets.Should().Be(3);
+            result["bob"].TotalTweets.Should().Be(3);
         }
 
         [Test]
@@ -66,17 +66,17 @@ namespace PBP.TwitterHub.Web.Tests
 
             var result = TweetAggregator.Process(_tweets);
 
-            result["bob"].mentions.Keys.Count.Should().Be(2);
+            result["bob"].Mentions.Keys.Count.Should().Be(2);
         }
 
         [Test]
-        public void TotalMentionsOfNancyByBobShouldBe2()
+        public void TotalMentionsOfNancyByBobShouldBe3()
         {
             Given_tweets_from_multiple_users_with_mentions();
 
             var result = TweetAggregator.Process(_tweets);
 
-            result["bob"].mentions["nancy"].Should().Be(2);
+            result["bob"].Mentions["nancy"].Should().Be(3);
         }
 
         [Test]
@@ -86,7 +86,7 @@ namespace PBP.TwitterHub.Web.Tests
 
             var result = TweetAggregator.Process(_tweets);
 
-            result["bob"].mentions["drew"].Should().Be(1);
+            result["bob"].Mentions["drew"].Should().Be(1);
         }
 
         [Test]
@@ -96,7 +96,7 @@ namespace PBP.TwitterHub.Web.Tests
 
             var result = TweetAggregator.Process(_tweets);
 
-            result["nancy"].totalTweets.Should().Be(1);
+            result["nancy"].TotalTweets.Should().Be(1);
         }
 
         [Test]
@@ -106,7 +106,7 @@ namespace PBP.TwitterHub.Web.Tests
 
             var result = TweetAggregator.Process(_tweets);
 
-            result["nancy"].mentions.Count.Should().Be(0);
+            result["nancy"].Mentions.Count.Should().Be(0);
         }
     }
 }
