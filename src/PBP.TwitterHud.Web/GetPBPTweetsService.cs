@@ -11,7 +11,7 @@ namespace PBP.TwitterHud.Web
             throw new NotImplementedException();
         }
 
-        public IEnumerable<PBPTweet> GeTweetsSince(DateTime sinceDateTime)
+        public IEnumerable<Tweet> GeTweetsSince(DateTime sinceDateTime)
         {
             throw new NotImplementedException();
         }

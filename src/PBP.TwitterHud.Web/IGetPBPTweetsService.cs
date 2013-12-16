@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using PBP.Twitter;
 
 namespace PBP.TwitterHud.Web
 {
     public interface IGetPBPTweetsService
     {
-        IEnumerable<PBPTweet> GeTweetsSince(DateTime sinceDateTime);
+        IEnumerable<Tweet> GeTweetsSince(DateTime sinceDateTime);
     }
 }

@@ -67,7 +67,6 @@
     </Compile>
     <Compile Include="IGetPBPTweetsService.cs" />
     <Compile Include="Models\GetPBPTweetsResponseModel.cs" />
-    <Compile Include="PBPTweet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
