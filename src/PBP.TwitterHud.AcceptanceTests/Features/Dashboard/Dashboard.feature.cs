@@ -32,8 +32,8 @@ namespace PBP.TwitterHud.AcceptanceTests.Features.Dashboard
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Dashboard", "In order to plan, track and organize social media updates\nI want to be able to se" +
-                    "e all of the company\'s status updates in one place", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Dashboard", "In order to plan, track and organize social media updates\r\nI want to be able to s" +
+                    "ee all of the company\'s status updates in one place", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         

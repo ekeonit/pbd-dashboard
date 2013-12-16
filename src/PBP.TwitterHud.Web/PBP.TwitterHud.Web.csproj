@@ -56,10 +56,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\AngularJS\app.js" />
+    <Content Include="Scripts\AngularJS\Dashboard\pbp-tweets-controller.js" />
+    <Content Include="Scripts\AngularJS\Dashboard\pbp-tweets.js" />
+    <Content Include="Scripts\AngularJS\Dashboard\Tests\pbp-tweets-tests.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PBPTweetsController.cs" />
     <Compile Include="Services\GetPBPTweetsService.cs" />
     <Compile Include="Global.asax.cs">
@@ -73,6 +81,8 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\angular.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
