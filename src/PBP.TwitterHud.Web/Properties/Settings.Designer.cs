@@ -25,7 +25,7 @@ namespace PBP.TwitterHud.Web.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("cIDVSTXNw5gCj82tJfQ7w")]
+        [global::System.Configuration.DefaultSettingValueAttribute("lSFl1JY46x9JwhBguoglDw")]
         public string consumerKey {
             get {
                 return ((string)(this["consumerKey"]));
@@ -34,7 +34,7 @@ namespace PBP.TwitterHud.Web.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("tA4DKBEFonNXSyqUkqzQ4QVY8myRS5pVMsEVLQHpg")]
+        [global::System.Configuration.DefaultSettingValueAttribute("aUwEpnnY2pl7hGDyfiZ0ge8zqupNhYKq5VgTqcvWsc")]
         public string consumerSecret {
             get {
                 return ((string)(this["consumerSecret"]));

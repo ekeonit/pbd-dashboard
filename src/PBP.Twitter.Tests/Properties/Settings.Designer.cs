@@ -25,7 +25,7 @@ namespace PBP.Twitter.Tests.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("cIDVSTXNw5gCj82tJfQ7w")]
+        [global::System.Configuration.DefaultSettingValueAttribute("lSFl1JY46x9JwhBguoglDw")]
         public string ConsumerKey {
             get {
                 return ((string)(this["ConsumerKey"]));
@@ -37,7 +37,7 @@ namespace PBP.Twitter.Tests.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("tA4DKBEFonNXSyqUkqzQ4QVY8myRS5pVMsEVLQHpg")]
+        [global::System.Configuration.DefaultSettingValueAttribute("aUwEpnnY2pl7hGDyfiZ0ge8zqupNhYKq5VgTqcvWsc")]
         public string ConsumerSecret {
             get {
                 return ((string)(this["ConsumerSecret"]));
